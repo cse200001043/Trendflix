@@ -62,6 +62,7 @@ export const getMainActions = (dispatch) => {
     searchMovie: (movieName, navigate) =>
       dispatch(searchMovie(movieName, navigate)),
     searchGenre: (genre, navigate) => dispatch(searchGenre(genre, navigate)),
+    getAmazonProducts: (data, setAmazonProducts) => dispatch(getAmazonProducts(data, setAmazonProducts))
   };
 };
 
@@ -304,6 +305,18 @@ const searchGenre = (genre, navigate) => {
       navigate(`/search/${genre.category}`, {
         state: { data: response?.data?.movie_data },
       });
+    }
+  };
+};
+
+const getAmazonProducts = (data, setAmazonProducts) => {
+  return async (dispatch) => {
+    const response = await datamindCall(data, ENDPOINTS.GET_AMAZON_PRODUCTS, "POST");
+    if (response.error) {
+      dispatch(openAlertMessage("Some error occurred"));
+    } else {
+      console.log('response', response.data)
+      setAmazonProducts(response?.data?.productLinks)
     }
   };
 };
