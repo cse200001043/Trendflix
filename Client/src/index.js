@@ -24,6 +24,8 @@ import InitialDetails from "./components/InitialDetails";
 import EditMovie from "./components/Admin/EditMovie";
 import SearchMoviesPage from "./shared/components/SearchMoviesPage";
 
+import VideoPlayer from './VideoPlayer';
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const persistConfig = {
