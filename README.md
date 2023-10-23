@@ -40,35 +40,7 @@ Face features form a significant part of the image, However we do not want the f
 At this step, we have a filtered image without any backround , without any facial features of film stars. The image is now used to search similiar products from our database. The image searc component has been implemented using [CLIP](https://openai.com/research/clip) by OpenAI.
 These four components work in harmony to deliver a comprehensive and versatile solution for processing and optimizing movie frames.
 
-### CLIP Overview 
-CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed by OpenAI, capable of understanding images and text simultaneously. It enables a wide range of applications, including image search, zero-shot classification, and more.
 
-![clip](https://github.com/cse200001043/Trendflix/assets/87379004/84a72775-297b-41b2-a455-9600237ef787)
-
-
-### CLIP Feature Extractor
-
-The CLIP Feature Extractor is a crucial component responsible for processing image data. It extracts meaningful features from images, encoding them into numerical representations that can be used for downstream tasks. This component utilizes a convolutional neural network (CNN) architecture, such as a vision transformer (ViT), to extract these features effectively.
-
-### CLIP Processor
-
-The CLIP Processor is a key part of CLIP's text-image interaction. It prepares the text and image inputs for the CLIP Model. The processor performs the following tasks:
-
-- Tokenization: It breaks down text into tokens and encodes them into numerical vectors.
-- Image Preprocessing: For images, it resizes and normalizes them, preparing them for feature extraction.
-- Text and Image Pairing: It ensures that the text and image inputs are properly aligned for meaningful comparison.
-
-### CLIP Model
-
-The CLIP Model combines the power of the extracted image features and text embeddings to perform various tasks. The model learns to understand the relationships between images and text through a contrastive loss function, where positive pairs (matching images and text) are encouraged to have high similarity, while negative pairs (non-matching images and text) have low similarity.
-
-- **Image-Text Matching:** Given an image and a text description, the CLIP Model calculates the similarity score. It measures how well the text and image correspond to each other, enabling applications like image search and zero-shot classification.
-
-- **Zero-Shot Learning:** CLIP can be used to classify images and texts into categories it has never seen during training, making it a powerful tool for a wide range of applications.
-
-- **Multimodal Retrieval:** It allows you to search for images based on textual queries or vice versa, bridging the gap between text and image understanding.
-
-In summary, CLIP leverages the CLIP Feature Extractor, CLIP Processor, and CLIP Model to enable a new level of interaction and understanding between text and images. This makes it a versatile tool for various AI tasks, including image search, natural language understanding, and more.` 
 ### Rembg - Remove Image Backgrounds
 
 Rembg is a Python library and command-line tool that removes the background from images. It's a handy tool for various applications, such as creating product images for e-commerce, isolating objects for graphic design, and much more. 
@@ -111,6 +83,36 @@ OpenCV (cv2) can be installed using pip:
 ```bash
 pip install opencv-python
 ```
+
+### CLIP Overview 
+CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed by OpenAI, capable of understanding images and text simultaneously. It enables a wide range of applications, including image search, zero-shot classification, and more.
+
+![clip](https://github.com/cse200001043/Trendflix/assets/87379004/84a72775-297b-41b2-a455-9600237ef787)
+
+
+### CLIP Feature Extractor
+
+The CLIP Feature Extractor is a crucial component responsible for processing image data. It extracts meaningful features from images, encoding them into numerical representations that can be used for downstream tasks. This component utilizes a convolutional neural network (CNN) architecture, such as a vision transformer (ViT), to extract these features effectively.
+
+### CLIP Processor
+
+The CLIP Processor is a key part of CLIP's text-image interaction. It prepares the text and image inputs for the CLIP Model. The processor performs the following tasks:
+
+- Tokenization: It breaks down text into tokens and encodes them into numerical vectors.
+- Image Preprocessing: For images, it resizes and normalizes them, preparing them for feature extraction.
+- Text and Image Pairing: It ensures that the text and image inputs are properly aligned for meaningful comparison.
+
+### CLIP Model
+
+The CLIP Model combines the power of the extracted image features and text embeddings to perform various tasks. The model learns to understand the relationships between images and text through a contrastive loss function, where positive pairs (matching images and text) are encouraged to have high similarity, while negative pairs (non-matching images and text) have low similarity.
+
+- **Image-Text Matching:** Given an image and a text description, the CLIP Model calculates the similarity score. It measures how well the text and image correspond to each other, enabling applications like image search and zero-shot classification.
+
+- **Zero-Shot Learning:** CLIP can be used to classify images and texts into categories it has never seen during training, making it a powerful tool for a wide range of applications.
+
+- **Multimodal Retrieval:** It allows you to search for images based on textual queries or vice versa, bridging the gap between text and image understanding.
+
+In summary, CLIP leverages the CLIP Feature Extractor, CLIP Processor, and CLIP Model to enable a new level of interaction and understanding between text and images. This makes it a versatile tool for various AI tasks, including image search, natural language understanding, and more.` 
 # Getting Started
 
 ### Prerequisites
