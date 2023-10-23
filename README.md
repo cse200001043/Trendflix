@@ -62,8 +62,6 @@ echo pip install rembg
 ```
 ### Object Detection with OpenCV (cv2)
 
-![OpenCV Logo](https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg)
-
 *OpenCV, also known as **cv2* in Python, is a powerful open-source computer vision library that provides a wide range of tools and functions for object detection and image processing. Whether you're building computer vision applications, object recognition systems, or simply exploring image analysis, OpenCV is a versatile choice.
 
 #### Features
