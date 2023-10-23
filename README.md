@@ -19,7 +19,9 @@ TrendFlix is a cutting-edge movie streaming platform that redefines the traditio
 
 ### CLIP Overview 
 CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed by OpenAI, capable of understanding images and text simultaneously. It enables a wide range of applications, including image search, zero-shot classification, and more.
-![clip](https://github.com/cse200001043/Trendflix/assets/87379004/0abeab5c-a74f-402f-a8c8-00696cdcd916)
+
+<img src="https://github.com/cse200001043/Trendflix/assets/87379004/19583819-628e-497a-9f6d-e5bcb6e30311" alt="Alt Text" width="300" height="400" />
+
 
 
 ### CLIP Feature Extractor
