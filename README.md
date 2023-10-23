@@ -1,4 +1,6 @@
 
+
+
 # TrendFlix
 
 TrendFlix is a cutting-edge movie streaming platform that redefines the traditional streaming experience by seamlessly blending entertainment and fashion. Much like popular services such as Amazon Prime, TrendFlix offers a vast library of movies and TV shows for your viewing pleasure. However, what sets TrendFlix apart is its unique and innovative feature: the ability to display shopping links for products similar to the wearable items worn by your favorite movie stars.
@@ -17,11 +19,31 @@ TrendFlix is a cutting-edge movie streaming platform that redefines the traditio
 
 ## Introduction
 
+### Machine Learning Algorithm for Movie Frames
+
+Our machine learning algorithm for movie frames comprises four essential components, each serving a distinct purpose in enhancing and optimizing the visual and privacy aspects of the frames.
+
+#### 1. Background Removal
+
+Background removal is a critical step in isolating the primary subject or objects within each movie frame. By effectively eliminating the background, this component enhances the focus and clarity of the subject, resulting in visually appealing frames. We use the [Rembg](https://github.com/danielgatis/rembg) Library.
+
+#### 2. Object Detection
+
+Object detection, powered by [OpenCV (CV2)](https://opencv.org/), enables the automatic identification and localization of various objects within the movie frames. This component provides valuable insights into the composition of each frame, making it a versatile tool for analysis and enhancement.
+
+#### 3. Face-Blurring
+
+Face features form a significant part of the image, However we do not want the face of the celebrity to influence our search results. So we feed the image into new ML model that uses CV2 to blur the face.
+
+#### 4. Image Search
+
+At this step, we have a filtered image without any backround , without any facial features of film stars. The image is now used to search similiar products from our database. The image searc component has been implemented using [CLIP](https://openai.com/research/clip) by OpenAI.
+These four components work in harmony to deliver a comprehensive and versatile solution for processing and optimizing movie frames.
+
 ### CLIP Overview 
 CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed by OpenAI, capable of understanding images and text simultaneously. It enables a wide range of applications, including image search, zero-shot classification, and more.
 
-<img src="https://github.com/cse200001043/Trendflix/assets/87379004/19583819-628e-497a-9f6d-e5bcb6e30311" alt="Alt Text" width="300" height="400" />
-
+![clip](https://github.com/cse200001043/Trendflix/assets/87379004/84a72775-297b-41b2-a455-9600237ef787)
 
 
 ### CLIP Feature Extractor
@@ -47,8 +69,49 @@ The CLIP Model combines the power of the extracted image features and text embed
 - **Multimodal Retrieval:** It allows you to search for images based on textual queries or vice versa, bridging the gap between text and image understanding.
 
 In summary, CLIP leverages the CLIP Feature Extractor, CLIP Processor, and CLIP Model to enable a new level of interaction and understanding between text and images. This makes it a versatile tool for various AI tasks, including image search, natural language understanding, and more.` 
+### Rembg - Remove Image Backgrounds
 
-## Getting Started
+Rembg is a Python library and command-line tool that removes the background from images. It's a handy tool for various applications, such as creating product images for e-commerce, isolating objects for graphic design, and much more. 
+
+#### Features
+
+- *Easy-to-Use*: Remove backgrounds from images with a simple Python library or command-line interface.
+- *Supports Various Formats*: Works with a wide range of image formats, including PNG, JPG, and more.
+- *High-Quality Results*: Generates high-quality output with smooth object edges.
+- *Fast Processing*: Quickly processes images to save you time.
+- *Customizable*: Adjust the settings to meet your specific background removal needs.
+
+#### Installation
+
+You can install rembg via pip:
+
+```bash
+echo pip install rembg
+```
+### Object Detection with OpenCV (cv2)
+
+![OpenCV Logo](https://upload.wikimedia.org/wikipedia/commons/3/32/OpenCV_Logo_with_text_svg_version.svg)
+
+*OpenCV, also known as **cv2* in Python, is a powerful open-source computer vision library that provides a wide range of tools and functions for object detection and image processing. Whether you're building computer vision applications, object recognition systems, or simply exploring image analysis, OpenCV is a versatile choice.
+
+#### Features
+
+- *Pre-Trained Models:* Utilize pre-trained deep learning models for object detection, such as YOLO, SSD, and more.
+
+- *Custom Object Detection:* Train your own object detection models on custom datasets.
+
+- *Real-Time Detection:* Achieve real-time object detection and tracking in videos and camera streams.
+
+- *Extensive Image Processing:* Perform image pre-processing, filtering, and feature extraction for better detection results.
+
+#### Installation
+
+OpenCV (cv2) can be installed using pip:
+
+```bash
+pip install opencv-python
+```
+# Getting Started
 
 ### Prerequisites
 
