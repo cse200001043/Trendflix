@@ -151,7 +151,7 @@ def getLikedMovies():
 def changeUserData():
     global user_collection
     global user_list
-    new_user_collection = client['cinemania']['users']
+    new_user_collection = client['Trendflix']['users']
     new_user_list = list(new_user_collection.find())
 
     user_collection = new_user_collection
@@ -717,21 +717,17 @@ def func9():
 
     # Extract the base64 data from the Data URL
     image_data = re.sub('^data:image/.+;base64,', '', frameDataUrl)
-
     # Decode the base64 data
     image_binary = base64.b64decode(image_data)
-
     # Create an image object from the binary data
     image = Image.open(BytesIO(image_binary))
-
     image = image.convert('RGB')
 
     # Save the image to a file
     image.save('input/captured_frame.jpeg', 'jpeg')
     print("Image Saved\n------------------------------------------------------------\n", image)
-
-    frameToObjectsModel.main()    
-    result = ImageSearch.get_best_match() 
+    frameToObjectsModel.main()
+    result = ImageSearch.get_best_match()
 
     return json.dumps({"productLinks": result}, default=str)
 

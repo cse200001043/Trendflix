@@ -3,14 +3,12 @@ body {
   padding: 0;
   font-family: Arial, sans-serif;
   background-color: #f0f0f0;
-  overflow: hidden;
 }
 
 .app {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
 }
 
 .burger-button {
@@ -54,16 +52,6 @@ h2{
   padding-top: 0px;
 }
 
-/* ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 10px;
-} */
-
-/* Style for the burger icon */
 .burger-button {
   background: none;
   border: none;

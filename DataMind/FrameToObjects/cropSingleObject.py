@@ -3,9 +3,10 @@ import cv2
 import numpy as np
 import os
 
+
 def cropSingleObject():
     inputPath = "FrameToObjects/RemovedBackground"
-    outputPath = "Wearable"
+    outputPath = "FrameToObjects/Object"
 
     for filename in os.listdir(outputPath):
         file_path = os.path.join(outputPath, filename)
@@ -49,4 +50,4 @@ def cropSingleObject():
         output_path = outputPath + "/" + "output" + str(cnt) + ".png"
         cnt += 1
         # Save image
-        cv2.imwrite(output_path, output_image)        
+        cv2.imwrite(output_path, output_image)
