@@ -180,7 +180,7 @@ To run the server, run the following command:
 cd server
 npm start
 ```
-"Wait till it says "Server is listening on port 5000"
+Wait till it says "Server is listening on port 5000"
 
 ### 3. DataMind
 
