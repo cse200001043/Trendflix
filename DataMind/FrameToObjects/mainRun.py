@@ -1,6 +1,5 @@
 from FrameToObjects import removeBackground as step1
 from FrameToObjects import cropSingleObject as step2
-from FrameToObjects import cropMultipleObjects as step3
 from FrameToObjects import blurFace as step4
 
 
