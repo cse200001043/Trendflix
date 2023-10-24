@@ -29,19 +29,22 @@ def get_best_match():
     img_count = 0
     print("Image processed\n----------------------------------------------------------\n")
 
-    for i in range(1, 11):
-        with open(f"ImageMatching/database_embeddings{i}.pkl", 'rb') as f:
-            saved_data = pickle.load(f)
-            database_embeddings = saved_data['embeddings']
-            database_metadata1 = saved_data['metadata']
-            for data in database_metadata1:
-                database_metadata.append(data)
+    for i in range(1, 1000):
+        try:
+            with open(f"ImageMatching/database_embeddings{i}.pkl", 'rb') as f:
+                saved_data = pickle.load(f)
+                database_embeddings = saved_data['embeddings']
+                database_metadata1 = saved_data['metadata']
+                for data in database_metadata1:
+                    database_metadata.append(data)
 
-            for image_embedding in database_embeddings:
-                similarity = torch.nn.functional.cosine_similarity(
-                    user_query_embedding, image_embedding)
-                similarities.append(similarity.item())
-                img_count = img_count + 1
+                for image_embedding in database_embeddings:
+                    similarity = torch.nn.functional.cosine_similarity(
+                        user_query_embedding, image_embedding)
+                    similarities.append(similarity.item())
+                    img_count = img_count + 1
+        except:
+            break
 
     top_matches = sorted(range(len(similarities)),
                          key=lambda i: similarities[i], reverse=True)
