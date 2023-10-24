@@ -212,7 +212,7 @@ const PrimarySearchAppBar = ({ userDetails, searchMovie }) => {
               cursor: "pointer",
             }}
           >
-            CineMania
+            Trendflix
           </Typography>
           <Search>
             <SearchIconWrapper>

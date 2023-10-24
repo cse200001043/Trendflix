@@ -169,7 +169,7 @@ const AddMovie = ({ addMovie, openAlertMessage }) => {
       if (actor.selectedImage) {
         const data = new FormData();
         data.append("file", actor.selectedImage);
-        data.append("upload_preset", "cinemania");
+        data.append("upload_preset", "trendflix");
         data.append("cloud_name", "harshit9829");
 
         try {
@@ -208,7 +208,7 @@ const AddMovie = ({ addMovie, openAlertMessage }) => {
     if (Uploadingfile) {
       const data = new FormData();
       data.append("file", Uploadingfile);
-      data.append("upload_preset", "cinemania");
+      data.append("upload_preset", "Trendflix");
       data.append("cloud_name", "harshit9829");
 
       try {
