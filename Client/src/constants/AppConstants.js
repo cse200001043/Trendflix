@@ -22,4 +22,5 @@ export const ENDPOINTS = {
   UPDATE_MOVIE: "/updatemovie",
   DELETE_MOVIE: "/deletemovie",
   SEARCH_GENRE: "/category",
+  GET_AMAZON_PRODUCTS:"/amazon_products"
 };

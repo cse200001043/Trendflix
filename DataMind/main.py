@@ -5,7 +5,15 @@ import pymongo
 from fuzzywuzzy import process
 from flask_cors import CORS
 import Movie_recommendation_code as file1
+from FrameToObjects import mainRun as frameToObjectsModel
+from ImageMatching import imageSearch as ImageSearch
 import ast
+
+import base64
+import re
+from io import BytesIO
+from PIL import Image
+
 
 app = Flask(__name__)
 CORS(app)
@@ -193,6 +201,7 @@ def func():
 @app.route("/userid", methods=['POST'])
 def func1():
     user_id = request.get_json().get('user_id')
+    watched_movies = 0
 
     for i in user_list:
         if (str(i['_id']) == user_id):
@@ -699,6 +708,32 @@ def func8():
 
     data = [{'title': 'All Movies', 'data': all_data}]
     return json.dumps({'data': data}, default=str)
+
+
+@app.route("/amazon_products", methods=['POST'])
+def func9():
+    frameDataUrl = request.get_json().get('frameDataUrl')
+    print(type(frameDataUrl))
+
+    # Extract the base64 data from the Data URL
+    image_data = re.sub('^data:image/.+;base64,', '', frameDataUrl)
+
+    # Decode the base64 data
+    image_binary = base64.b64decode(image_data)
+
+    # Create an image object from the binary data
+    image = Image.open(BytesIO(image_binary))
+
+    image = image.convert('RGB')
+
+    # Save the image to a file
+    image.save('input/captured_frame.jpeg', 'jpeg')
+    print("Image Saved\n------------------------------------------------------------\n", image)
+
+    frameToObjectsModel.main()    
+    result = ImageSearch.get_best_match() 
+
+    return json.dumps({"productLinks": result}, default=str)
 
 
 if __name__ == '__main__':

@@ -1,0 +1,78 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.burger-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -600px; /* Adjust the initial width of the hidden sidebar */
+  width: 600px; /* Adjust the width of the sidebar */
+  height: 100%;
+  background: #333;
+  color: white;
+  overflow-y: auto;
+  padding: 20px;
+  transition: left 0.3s;
+  z-index: 1;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+p{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+h2{
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
+/* ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+} */
+
+/* Style for the burger icon */
+.burger-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.burger-button:focus {
+  outline: none;
+}
+

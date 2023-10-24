@@ -319,7 +319,7 @@ const MoviePage = ({
                             }}
                           >
                             <Typography variant="h6" component="h2">
-                              Play Trailer
+                             Play Trailer 
                             </Typography>
                             <div>
                               <IconButton
