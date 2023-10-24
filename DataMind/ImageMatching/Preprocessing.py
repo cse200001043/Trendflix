@@ -46,7 +46,7 @@ def preprocess():
                 database_embeddings = []
                 database_metadata = []
                 print(
-                    f"{img_count}--1--------Data Extraction Completed\n---------------------------------------------------\n")
+                    f"Preprocessing of images from {img_count-299} to {img_count}\n")
 
         except Exception as e:
             # Code to handle the exception
@@ -56,7 +56,8 @@ def preprocess():
         with open(f"database_embeddings{int(img_count/300)+1}.pkl", 'wb') as f:
             pickle.dump({'embeddings': database_embeddings,
                         'metadata': database_metadata}, f)
-        print("1--------Data Extraction Completed\n---------------------------------------------------\n")
+        print(
+            f"Preprocessing of images from {(int(img_count/300))*300+1} to {img_count}\n")
 
 
 if __name__ == "__main__":
