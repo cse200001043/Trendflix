@@ -104,6 +104,8 @@ The CLIP Processor is a key part of CLIP's text-image interaction. It prepares t
 
 The CLIP Model combines the power of the extracted image features and text embeddings to perform various tasks. The model learns to understand the relationships between images and text through a contrastive loss function, where positive pairs (matching images and text) are encouraged to have high similarity, while negative pairs (non-matching images and text) have low similarity.
 
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/01a58501-544c-47ef-9b07-f1a9111923dc)
+
 - **Image-Text Matching:** Given an image and a text description, the CLIP Model calculates the similarity score. It measures how well the text and image correspond to each other, enabling applications like image search and zero-shot classification.
 
 - **Zero-Shot Learning:** CLIP can be used to classify images and texts into categories it has never seen during training, making it a powerful tool for a wide range of applications.
