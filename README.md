@@ -1,6 +1,3 @@
-
-
-
 # TrendFlix
 
 TrendFlix is a cutting-edge movie streaming platform that redefines the traditional streaming experience by seamlessly blending entertainment and fashion. Much like popular services such as Amazon Prime, TrendFlix offers a vast library of movies and TV shows for your viewing pleasure. However, what sets TrendFlix apart is its unique and innovative feature: the ability to display shopping links for products similar to the wearable items worn by your favorite movie stars.
@@ -12,10 +9,8 @@ TrendFlix is a cutting-edge movie streaming platform that redefines the traditio
   - [Installation](#installation)
   - [Preprocessing](#preprocessing)
 - [Usage](#usage)
-- [Model Overview](#model-overview)
-- [Examples](#examples)
-- [Contributing](#contributing)
-- [License](#license)
+- [Model Pipelining](#model-pipelining)
+- [Project Overview](#project-overview)
 
 ## Introduction
 
@@ -161,6 +156,7 @@ mkdir Images
 py ./MakeDatabase.py
 py ./Preprocessing.py
 ```
+Note: Only required when the database is updated, no need to do it if using the same database from this repository as it is already saved in the files.
 
 ## Usage
 ### 1. Client
@@ -192,10 +188,65 @@ py ./main.py
 ```
 
 
-## Examples
 
-[Show some code examples or usage scenarios that demonstrate how to use the OpenAI CLIP model in your project. Include both text and image inputs.]
+## Model Pipelining
 
+- **Input Image:**
+![captured_frame](https://github.com/cse200001043/Trendflix/assets/85782674/350eb5ce-a019-493c-a19f-f29aa34ee851=30X20)
+
+- **Background Removal:**
+``` python
+from rembg import remove
+from PIL import Image
+
+input = Image.open(inputPath)
+output = remove(input)
+output.save(outputPath)
+```
+![output0](https://github.com/cse200001043/Trendflix/assets/85782674/7ed3e8de-b7a0-4b49-99a8-a720c37888b5)
+
+- **Object Detection:**
+``` python
+import cv2
+import numpy as np
+import os
+
+input_image = cv2.imread(imagePath, cv2.IMREAD_UNCHANGED)
+height = input_image.shape[0]
+width = input_image.shape[1]
+if len(input_image.shape) == 2:
+    gray_input_image = input_image.copy()
+else:
+    gray_input_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
+upper_threshold, thresh_input_image = cv2.threshold(gray_input_image, thresh=0, maxval=255, type=cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+lower_threshold = 0.5 * upper_threshold
+canny = cv2.Canny(input_image, lower_threshold, upper_threshold)
+pts = np.argwhere(canny > 0)
+y1, x1 = pts.min(axis=0)
+y2, x2 = pts.max(axis=0)
+output_image = input_image[y1:y2, x1:x2]
+```
+![output0](https://github.com/cse200001043/Trendflix/assets/85782674/107585af-fa6e-4dad-ac9c-67a3ebd11827)
+
+- **Face-Blurring:**
+``` python
+import cv2
+import numpy as np
+
+input_image = cv2.imread(imagePath)
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+gray_image = cv2.cvtColor(input_image, cv2.COLOR_BGR2GRAY)
+faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=4, minSize=(5, 5))
+mask = np.zeros_like(input_image)
+for (x, y, w, h) in faces:
+    face_region = input_image[y:y+h, x:x+w]
+    face_region = cv2.GaussianBlur(face_region, (99, 99), 30)
+    input_image[y:y+h, x:x+w] = face_region
+result_image = cv2.bitwise_or(input_image, mask)
+```
+![output0](https://github.com/cse200001043/Trendflix/assets/85782674/c06690c8-f0ff-4493-b23d-db900e596731)
+
+- **Image Search:**
 ```python
 # Sample code snippet
 from transformers import CLIPProcessor, CLIPModel
@@ -220,4 +271,24 @@ with torch.no_grad():
 similarity_scores = output.logits_per_image
 print(similarity_scores)
 ```
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/fea2ca9b-51b3-4870-adce-8dca02a9f820)
 
+
+
+
+
+
+
+## Project Overview
+- **Home Page:** To use the Trendflix project, users are required to register first. After registration, they will be prompted to complete a form to specify their movie preferences. Based on these details, users will receive movie recommendations tailored to their preferences, and they can select a movie to watch. This contains the movies from our database that is built using TMDB database API. Below is the project's homepage, which includes the mentioned features.
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/406c494a-edd5-4517-b380-03f17a7ed0ed)
+
+- **Movie Info Page:** This page provides detailed information about a specific movie, including its cast, genre, duration, and more. You can also watch the movie's trailer here. When you pause the movie, a pop-up will appear displaying the costumes worn by the actors in the paused frame. This pop-up will show matching costumes from our database, which we have compiled by scraping Amazon product data using the Beautiful Soup web scraper. It will display the most closely matched costumes in the window.
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/c6f50693-9fef-4334-8a0e-4f7b87000e5b)
+
+- **Results Page:** The final page displays the dresses predicted by the model as the best-matched options. It includes images of the products, their prices, ratings, and a shopping link that directs you to the respective Amazon product page for purchasing.
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/d3fcb947-3cde-4c09-aee8-78a34eb0ec8b)
+
+- **Amazon Links:** This is the Amazon link for one of the results generated by the ML model, providing the ultimate shopping destination.
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/037ab99d-ad69-4897-9a38-1a5017e7c99b)
+https://www.amazon.in//AKHILAM-Womens-Design-Unstitched-2PAKHI41_Parent/dp/B0BXPBJQWV?th=1
