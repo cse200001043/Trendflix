@@ -92,6 +92,8 @@ CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed
 
 The CLIP Feature Extractor is a crucial component responsible for processing image data. It extracts meaningful features from images, encoding them into numerical representations that can be used for downstream tasks. This component utilizes a convolutional neural network (CNN) architecture, such as a vision transformer (ViT), to extract these features effectively.
 
+![image](https://github.com/cse200001043/Trendflix/assets/85782674/01a58501-544c-47ef-9b07-f1a9111923dc)
+
 ### CLIP Processor
 
 The CLIP Processor is a key part of CLIP's text-image interaction. It prepares the text and image inputs for the CLIP Model. The processor performs the following tasks:
@@ -103,8 +105,6 @@ The CLIP Processor is a key part of CLIP's text-image interaction. It prepares t
 ### CLIP Model
 
 The CLIP Model combines the power of the extracted image features and text embeddings to perform various tasks. The model learns to understand the relationships between images and text through a contrastive loss function, where positive pairs (matching images and text) are encouraged to have high similarity, while negative pairs (non-matching images and text) have low similarity.
-
-![image](https://github.com/cse200001043/Trendflix/assets/85782674/01a58501-544c-47ef-9b07-f1a9111923dc)
 
 - **Image-Text Matching:** Given an image and a text description, the CLIP Model calculates the similarity score. It measures how well the text and image correspond to each other, enabling applications like image search and zero-shot classification.
 
