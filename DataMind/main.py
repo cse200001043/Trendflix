@@ -6,6 +6,7 @@ from fuzzywuzzy import process
 from flask_cors import CORS
 import Movie_recommendation_code as file1
 from FrameToObjects import mainRun as frameToObjectsModel
+from ImageMatching import imageSearch as ImageSearch
 import ast
 
 import base64
@@ -727,12 +728,12 @@ def func9():
 
     # Save the image to a file
     image.save('input/captured_frame.jpeg', 'jpeg')
-    print("3", image)
+    print("Image Saved\n------------------------------------------------------------\n", image)
 
-    result = frameToObjectsModel.main(image)
-    print("4-------------------------------\n", result)
+    frameToObjectsModel.main()    
+    result = ImageSearch.get_best_match() 
 
-    return json.dumps({"productLinks": ["Paragon chappal"]}, default=str)
+    return json.dumps({"productLinks": result}, default=str)
 
 
 if __name__ == '__main__':
