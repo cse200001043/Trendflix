@@ -9,8 +9,8 @@ TrendFlix is a cutting-edge movie streaming platform that redefines the traditio
 
 - [Introduction](#introduction)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
+  - [Preprocessing](#preprocessing)
 - [Usage](#usage)
 - [Model Overview](#model-overview)
 - [Examples](#examples)
@@ -113,24 +113,84 @@ The CLIP Model combines the power of the extracted image features and text embed
 In summary, CLIP leverages the CLIP Feature Extractor, CLIP Processor, and CLIP Model to enable a new level of interaction and understanding between text and images. This makes it a versatile tool for various AI tasks, including image search, natural language understanding, and more.` 
 # Getting Started
 
-### Prerequisites
+Our project is organized into three primary components, each with its distinct role and functionality:
 
-[Explain what software and hardware prerequisites are needed for your project. Include information about any libraries or packages that should be installed.]
+1. **Client**: The client component handles the user interface and user interaction. It includes web applications that users interact with to access and utilize the services provided by this project.
+
+2. **Server**: The server component serves as the backend infrastructure of the project. It receives and processes requests from clients, performs computations, manages data, and handles the business logic of the application. The server is responsible for ensuring the project's functionality and availability.
+
+3. **Datamind**: The Datamind component is responsible for running the machine learning (ML) code used in this project, written in Python. This component performs data analysis, training ML models, and generating insights based on the provided data. It plays a crucial role in data-driven decision-making and enhancing the project's capabilities.
+
 
 ### Installation
+### 1. Client
 
-[Provide detailed installation instructions for setting up the project. Include any specific version requirements or environment setup that is necessary.]
+To install the client, run the following command:
+
+```bash
+cd client
+npm install
+```
+
+### 2. Server
+
+To install the server, run the following command:
+
+```bash
+cd server
+npm install
+```
+
+### 3. DataMind
+
+To install the ML model, run the following command:
+
+```bash
+cd DataMind
+pip install -r requirements.txt
+```
+
+# Preprocessing
+
+This part contains scripts and instructions for preprocessing images to create a database for image matching.
+
+```bash
+cd Datamind
+cd ImageMatching
+mkdir Images
+py ./MakeDatabase.py
+py ./Preprocessing.py
+```
 
 ## Usage
+### 1. Client
 
-[Explain how to use your project, especially how to interact with the OpenAI CLIP model. Include code examples and step-by-step guides to help users get started.]
+To run the client, run the following command:
 
-## Model Overview
+```bash
+cd client
+npm start
+```
 
-[Provide an overview of the OpenAI CLIP model from Hugging Face. Explain what the model is designed for and how it works. You can link to the official OpenAI CLIP documentation and Hugging Face model page for more details.]
+### 2. Server
 
-- OpenAI CLIP Model: [Official OpenAI CLIP Documentation](https://openai.com/research/clip)
-- Hugging Face Model Hub: [CLIP Model on Hugging Face](https://huggingface.co/models)
+To run the server, run the following command:
+
+```bash
+cd server
+npm start
+```
+"Wait till it says "Server is listening on port 5000"
+
+### 3. DataMind
+
+To run the ML model, run the following command:
+
+```bash
+cd DataMind
+py ./main.py
+```
+
 
 ## Examples
 
@@ -159,5 +219,5 @@ with torch.no_grad():
 # Extract the similarity scores
 similarity_scores = output.logits_per_image
 print(similarity_scores)
-
+```
 
