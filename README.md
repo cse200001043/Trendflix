@@ -85,8 +85,6 @@ pip install opencv-python
 ### CLIP Overview 
 CLIP (Contrastive Language-Image Pretraining) is a deep learning model developed by OpenAI, capable of understanding images and text simultaneously. It enables a wide range of applications, including image search, zero-shot classification, and more.
 
-![clip](https://github.com/cse200001043/Trendflix/assets/87379004/84a72775-297b-41b2-a455-9600237ef787)
-
 
 ### CLIP Feature Extractor
 
