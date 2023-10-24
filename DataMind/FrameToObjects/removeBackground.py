@@ -3,8 +3,8 @@ from PIL import Image
 import os
 
 def removeBackground():
-    inputPath = "../input"
-    outputPath = "RemovedBackground"
+    inputPath = "input"
+    outputPath = "FrameToObjects/RemovedBackground"
     
     for filename in os.listdir(outputPath):
         file_path = os.path.join(outputPath, filename)

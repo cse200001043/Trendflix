@@ -4,8 +4,8 @@ import numpy as np
 import os
 
 def cropSingleObject():
-    inputPath = "RemovedBackground"
-    outputPath = "../Wearable"
+    inputPath = "FrameToObjects/RemovedBackground"
+    outputPath = "Wearable"
 
     for filename in os.listdir(outputPath):
         file_path = os.path.join(outputPath, filename)
