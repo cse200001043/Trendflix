@@ -28,11 +28,11 @@ Object detection, powered by [OpenCV (CV2)](https://opencv.org/), enables the au
 
 #### 3. Face-Blurring
 
-Face features form a significant part of the image, However we do not want the face of the celebrity to influence our search results. So we feed the image into new ML model that uses CV2 to blur the face.
+Face features form a significant part of the image, However, we do not want the face of the celebrity to influence our search results. So, we feed the image into a new ML model that uses CV2 to blur the face.
 
 #### 4. Image Search
 
-At this step, we have a filtered image without any backround , without any facial features of film stars. The image is now used to search similiar products from our database. The image searc component has been implemented using [CLIP](https://openai.com/research/clip) by OpenAI.
+At this step, we have a filtered image without any background without any facial features of film stars. The image is now used to search for similar products from our database. The image search component has been implemented using [CLIP](https://openai.com/research/clip) by OpenAI.
 These four components work in harmony to deliver a comprehensive and versatile solution for processing and optimizing movie frames.
 
 
@@ -53,7 +53,7 @@ Rembg is a Python library and command-line tool that removes the background from
 You can install rembg via pip:
 
 ```bash
-echo pip install rembg
+pip install rembg
 ```
 ### Object Detection with OpenCV (cv2)
 
@@ -93,7 +93,7 @@ The CLIP Processor is a key part of CLIP's text-image interaction. It prepares t
 
 - Tokenization: It breaks down text into tokens and encodes them into numerical vectors.
 - Image Preprocessing: For images, it resizes and normalizes them, preparing them for feature extraction.
-- Text and Image Pairing: It ensures that the text and image inputs are properly aligned for meaningful comparison.
+- Text and Image Pairing: This ensures that the text and image inputs are properly aligned for meaningful comparison.
 
 ### CLIP Model
 
