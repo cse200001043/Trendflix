@@ -164,7 +164,7 @@ Note: Only required when the database is updated, no need to do it if using the 
 To run the client, run the following command:
 
 ```bash
-cd client
+cd Client
 npm start
 ```
 
@@ -173,10 +173,10 @@ npm start
 To run the server, run the following command:
 
 ```bash
-cd server
+cd Server
 npm start
 ```
-Wait till it says "Server is listening on port 5000"
+Wait till it says, "Server is listening on port 5000"
 
 ### 3. DataMind
 
